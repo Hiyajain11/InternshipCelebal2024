@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --very-dark-magenta: hsl(300,43%,22%);
+    --soft-pink: hsl(333,80%,67%);
+    --gark-grayish-magenta: hsl(303,10%,53%);
+    --light-grayish-magenta: hsl(300,24%,96%);
+    --white: hsl(0,0%,100%);
+}
+html,body{
+    width:100%;
+    height: 100%;
+    font-size: 15px;
+    font-family: 'Spatan',sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section{
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.row{
+    display: flex;
+    align-items: center;
+}
+.row:first-child{
+    justify-content: space-between;
+}
+.row:last-child{
+    gap: 20px;
+    align-items: flex-start;
+}
+h1{
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--very-dark-magenta);
+    padding-bottom: 20px;
+}
+p{
+    color: var(--dark-grayish-magenta);
+    font-weight: 500;
+    line-height: 24px;
+}
+.heading{
+    max-width: 40%;
+}
+.star-group{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 40px;
+}
+.rating-group{
+max-width: 60%;
+display: flex;
+flex-direction: column;
+gap: 20px;
+align-items: flex-end;
+}
+.rating-group .item{
+    background-color: var(--light-grayish-magenta);
+    padding: 20px 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.rating-group span{
+    font-weight: 700;
+    color: var(--very-dark-magenta);
+}
+.rating-group .item:nth-child(1){
+    margin-right: 120px;
+}
+.rating-group .item:nth-child(2){
+    margin-right: 60px;
+}
+.rating-group span{
+    font-weight: 700;
+    color: var(--very-dark-magenta);
+}
+.box{
+    background-color: var(--very-dark-magenta);
+    padding: 40px;
+    border-radius: 8px;
+}
+.box:nth-child(2){
+    margin-top: 20px;
+}
+.box:nth-child(3){
+    margin-top: 40px;
+}
+.box .user{
+display: flex;
+align-items: center;
+gap: 20px;
+padding-bottom: 20px;
+}
+.box .user .name p{
+    color: var(--white);
+    padding-bottom: 4px;
+}
+.box .user .name span{
+    color: var(--soft-pink);
+}
+.box img{
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+.box p{
+    color: var(--light-grayish-magenta);
+}

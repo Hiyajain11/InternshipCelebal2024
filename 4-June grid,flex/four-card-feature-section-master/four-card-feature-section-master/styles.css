@@ -1,0 +1,101 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: hsl(0, 0%, 98%);
+    font-family: 'Poppins',sans-serif;
+    font-size: 15px;
+    color: hsl(229, 6%, 66%);
+    padding: 20px 0;
+}
+h1,h2{
+    color: hsl(234, 12%, 34%);
+    font-size: 1.5rem;
+    margin: 0;
+    margin-top: 20px;
+}
+.header{
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 0 21px;
+    max-width: 78.4%;
+}
+
+.cards{
+display: grid;
+gap: 30px;
+padding: 32px;
+}
+.card{
+    padding: 30px;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px 0 hsl(229, 6%, 66%) ;
+}
+.card h2{
+    margin-top: 0;
+}
+#Supervisor{
+    border-top: 4px solid hsl(180, 62%, 55%);
+}
+#Team-builder{
+    border-top: 4px solid hsl(0, 78%,62%);
+}
+#Karma{
+    border-top: 4px solid hsl(34, 97%, 64%);
+}
+#Calculator{
+    border-top: 4px solid hsl(212, 86%, 64%);
+}
+.card-info{
+    margin: 0;
+    padding-top: 20px;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+.icon-container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+@media(min-width:1024px){
+    .header{
+        max-width: 506px;
+    }
+    h1,h2{
+        margin-top: 0;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .cards{
+        grid-template-columns: repeat(3,350px);
+        grid-template-rows: repeat(4, 125px);
+        justify-content: center;
+    }
+    .card{
+        padding: 30px;
+        padding-bottom: 0;
+        height: 250px;
+    }
+    #Supervisor,#Calculator{
+        grid-row: 2/4;
+    }
+    #Team-builder{
+        grid-row: 1/3;
+    }
+    #Karma{
+        grid-row: 3/5;
+    }
+}
+
+@media (min-width) and (max-width) {
+.cards{
+    grid-template-columns: repeat(2,48%);
+    grid-template-rows: repeat(2,50%);
+}
+}
