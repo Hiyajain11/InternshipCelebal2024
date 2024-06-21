@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container{
+    text-align: center;
+    background-color: plum;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    color: purple;
+}
+button{
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgb(103, 245, 245);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(124, 124, 245);
+}
+input{
+    padding: 8px;
+    margin-top: 10px;
+}
+#result{
+    color: blueviolet;
+    font-weight: bold;
+    margin: 10px;
+}
+#chances{
+    font-weight: bold;
+}
