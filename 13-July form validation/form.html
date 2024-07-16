@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            margin-top: 20px 40px 20px 40px;
+            padding: 0px 40px 0px 20px;
+            border: 2px solid grey;
+            height: 800px;
+            width: 300px;
+            opacity: 90%;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: crimson;
+            
+        }
+        .typing-error {
+            color: green;
+        }
+
+        h3{
+            margin-top: 2px;
+           text-align: center;
+        }
+        .btn{
+            margin-top: 15px;
+            width: 290px;
+            color: white;
+            background-color: grey;
+            border: none;
+            height: 30px;
+            border-radius: 5px;
+        }
+        .input{
+            width: 290px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid gray;
+        }
+        
+    
+        
+    </style>
+   
+   
+        <script>
+            function validation() {
+                // Initialize variables and get form elements
+                let form = document.forms["myform"];
+                let fname = form["fname"].value;
+                let lname = form["lname"].value;
+                let email = form["email"].value;
+                let password = form["password"].value;
+                let confirmPassword = form["confirmPassword"].value;
+                let phone = form["phone"].value;
+                let state = form["state"].value;
+                let city = form["city"].value;
+    
+                // Clear previous error messages
+                document.getElementById("errorfname").innerHTML = "";
+                document.getElementById("errorlname").innerHTML = "";
+                document.getElementById("erroremail").innerHTML = "";
+                document.getElementById("errorpassword").innerHTML = "";
+                document.getElementById("errorphone").innerHTML = "";
+                document.getElementById("errorstate").innerHTML = "";
+                document.getElementById("errorcity").innerHTML = "";
+    
+                // Regex patterns
+                let namePattern = /^[a-zA-Z]+$/;
+                let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                let phonePattern = /^\d{10}$/;
+    
+                // Validate first name
+                if (!namePattern.test(fname)) {
+                    document.getElementById("errorfname").innerHTML = "Please enter a valid first name.";
+                    return false;
+                }
+    
+                // Validate last name
+                if (!namePattern.test(lname)) {
+                    document.getElementById("errorlname").innerHTML = "Please enter a valid last name.";
+                    return false;
+                }
+    
+                // Validate email
+                if (!emailPattern.test(email)) {
+                    document.getElementById("erroremail").innerHTML = "Please enter a valid email address.";
+                    return false;
+                }
+    
+                // Validate password
+                if (password.length < 6) {
+                    document.getElementById("errorpassword").innerHTML = "Password must be at least 6 characters long.";
+                    return false;
+                }
+    
+                // Validate confirm password
+                if (password !== confirmPassword) {
+                    document.getElementById("errorpassword").innerHTML = "Passwords do not match.";
+                    return false;
+                }
+    
+                // Validate phone number
+                if (!phonePattern.test(phone)) {
+                    document.getElementById("errorphone").innerHTML = "Please enter a valid 10-digit phone number.";
+                    return false;
+                }
+    
+                // Validate state
+                if (state === "Select") {
+                    document.getElementById("errorstate").innerHTML = "Please select a state.";
+                    return false;
+                }
+    
+                // Validate city
+                if (city === "Select") {
+                    document.getElementById("errorcity").innerHTML = "Please select a city.";
+                    return false;
+                }
+    
+                // If all validations pass
+                return true;
+            }
+            function showError(id, message) {
+            let errorSpan = document.getElementById(id);
+            errorSpan.innerHTML = message;
+            errorSpan.classList.add("error");
+            errorSpan.classList.remove("typing-error");
+        }
+
+        function hideError(id) {
+            let errorSpan = document.getElementById(id);
+            errorSpan.innerHTML = "";
+            errorSpan.classList.remove("error");
+        }
+
+        function showTypingError(input, message) {
+            let errorSpan = document.getElementById("error" + input.name);
+            errorSpan.innerHTML = message;
+            errorSpan.classList.add("typing-error");
+            errorSpan.classList.remove("error");
+        }
+
+        function hideTypingError(input) {
+            let errorSpan = document.getElementById("error" + input.name);
+            errorSpan.innerHTML = "";
+            errorSpan.classList.remove("typing-error");
+        }
+            
+        </script>
+    </head>
+    <body>
+        <div class="form">
+            <form name="myform" onsubmit="return validation();">
+                <h3>User Details form</h3><hr>
+                <div>
+                    <p>First Name</p>
+                    <input type="text" placeholder="First Name" name="fname" class="input" onfocus="showTypingError(this, 'Please enter a valid first name.')" oninput="hideTypingError(this)">
+                    <span id="errorfname" class="error"></span>
+                </div>
+                <div>
+                    <p>Last Name</p>
+                    <input type="text" placeholder="Last Name" name="lname" class="input" onfocus="showTypingError(this, 'Please enter a valid last name.')" oninput="hideTypingError(this)">
+                    <span id="errorlname" class="error"></span>
+                </div>
+                <div>
+                    <p>Email ID</p>
+                    <input type="text" placeholder="Email ID" name="email" class="input" onfocus="showTypingError(this, 'Please enter a valid email address.')" oninput="hideTypingError(this)">
+                    <span id="erroremail" class="error"></span>
+                </div>
+                <div>
+                    <p>Password</p>
+                    <input type="password" name="password" maxlength="50" size="20" class="input" onfocus="showTypingError(this, 'Password must be at least 6 characters long.')" oninput="hideTypingError(this)">
+                    <span id="errorpassword" class="error"></span>
+                </div>
+                <div>
+                    <p>Confirm Password</p>
+                    <input type="password" name="confirmPassword" maxlength="50" size="20" class="input" onfocus="showTypingError(this, 'Passwords do not match.')" oninput="hideTypingError(this)">
+                </div>
+                <div>
+                    <p>Phone Number</p>
+                    <input type="text" placeholder="Phone Number" name="phone" class="input" onfocus="showTypingError(this, 'Please enter a valid 10-digit phone number.')" oninput="hideTypingError(this)">
+                    <span id="errorphone" class="error"></span>
+                </div>
+                <div>
+                    <p>Select State</p>
+                    <select name="state" onfocus="showTypingError(this, 'Please select a state.')" oninput="hideTypingError(this)">
+                        <option>Select</option>
+                        <option>Assam</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Punjab</option>
+                        <option>Rajasthan</option>
+                        <option>Uttar Pradesh</option>
+                    </select>
+                    <span id="errorstate" class="error" ></span>
+                </div>
+                <div>
+                    <p>Select City</p>
+                    <select name="city" onfocus="showTypingError(this, 'Please select a city.')" oninput="hideTypingError(this)">
+                        <option>Select</option>
+                        <option>Ajmer</option>
+                        <option>Alwar</option>
+                        <option>Bikaner</option>
+                        <option>Jaipur</option>
+                        <option>Jaisalmer</option>
+                        <option>Jodhpur</option>
+                        <option>Kota</option>
+                        <option>Udaipur</option>
+                    </select>
+                    <span id="errorcity" class="error"></span>
+                </div>
+                <div>
+                    <input type="submit" value="save" class="btn">
+                </div>
+            </form>
+        </div>
+    </body>
+    </html>
+    
+</html>
